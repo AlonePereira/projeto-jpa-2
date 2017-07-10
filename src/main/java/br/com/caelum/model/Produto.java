@@ -19,94 +19,90 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Entity
 public class Produto {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
-	@NotEmpty
-	private String nome;
-	@NotEmpty
-	private String linkDaFoto;
-	
-	@NotEmpty
-	@Column(columnDefinition="TEXT")
-	private String descricao;
-	
-	@Min(20)
-	private double preco;
-	
-	
-	@Valid
-	@ManyToOne
-	private Loja loja;
-	
-	@ManyToMany
-	private List<Categoria> categorias = new ArrayList<Categoria>();
-	
-	
-	public String getDescricao() {
-		return descricao;
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+    
+    @NotEmpty
+    private String nome;
+    
+    @NotEmpty
+    private String linkDaFoto;
 
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
-	
-	//método auxiliar para associar categorias com o produto
-	//se funcionar apos ter definido o relacionamento entre produto e categoria
-//	public void adicionarCategorias(Categoria... categorias) {
-//		for (Categoria categoria : categorias) {
-//			this.categorias.add(categoria);
-//		}
-//	}
+    @NotEmpty
+    @Column(columnDefinition = "TEXT")
+    private String descricao;
 
-	public String getLinkDaFoto() {
-		return linkDaFoto;
-	}
-	
-	public double getPreco() {
-		return preco;
-	}
+    @Min(20)
+    private double preco;
 
-	public void setPreco(double preco) {
-		this.preco = preco;
-	}
+    @Valid
+    @ManyToOne
+    private Loja loja;
 
-	public void setLinkDaFoto(String linkDaFoto) {
-		this.linkDaFoto = linkDaFoto;
-	}
-	
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    @ManyToMany
+    private List<Categoria> categorias = new ArrayList<Categoria>();
 
-	public Integer getId() {
-		return id;
-	}
+    public String getDescricao() {
+	return descricao;
+    }
 
-	public String getNome() {
-		return nome;
-	}
+    public void setDescricao(String descricao) {
+	this.descricao = descricao;
+    }
 
-	public void setNome(String nome) {
-		this.nome = nome;
+    public void adicionarCategorias(Categoria... categorias) {
+	for (Categoria categoria : categorias) {
+	    this.categorias.add(categoria);
 	}
+    }
 
-	public void setLoja(Loja loja) {
-		this.loja = loja;
-	}
+    public String getLinkDaFoto() {
+	return linkDaFoto;
+    }
 
-	public Loja getLoja() {
-		return loja;
-	}
+    public double getPreco() {
+	return preco;
+    }
 
-	
-	public List<Categoria> getCategorias() {
-	    return categorias;
-	}
+    public void setPreco(double preco) {
+	this.preco = preco;
+    }
 
-	
-	public void setCategorias(List<Categoria> categorias) {
-	    this.categorias = categorias;
-	}
+    public void setLinkDaFoto(String linkDaFoto) {
+	this.linkDaFoto = linkDaFoto;
+    }
+
+    public void setId(Integer id) {
+	this.id = id;
+    }
+
+    public Integer getId() {
+	return id;
+    }
+
+    public String getNome() {
+	return nome;
+    }
+
+    public void setNome(String nome) {
+	this.nome = nome;
+    }
+
+    public void setLoja(Loja loja) {
+	this.loja = loja;
+    }
+
+    public Loja getLoja() {
+	return loja;
+    }
+
+    public List<Categoria> getCategorias() {
+	return categorias;
+    }
+
+    public void setCategorias(List<Categoria> categorias) {
+	this.categorias = categorias;
+    }
 
 }
