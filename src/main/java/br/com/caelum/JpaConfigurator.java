@@ -24,8 +24,6 @@ public class JpaConfigurator {
 	public DataSource getDataSource() throws PropertyVetoException {
 	    ComboPooledDataSource dataSource = new ComboPooledDataSource();
 	    
-//	    DriverManagerDataSource dataSource2 = new DriverManagerDataSource();
-
 	    dataSource.setDriverClass("com.mysql.jdbc.Driver");
 	    dataSource.setUser("root");
 	    dataSource.setPassword("root");
@@ -34,11 +32,6 @@ public class JpaConfigurator {
 	    dataSource.setMinPoolSize(3);
 	    dataSource.setMaxPoolSize(5);
 	    dataSource.setNumHelperThreads(15);
-	    
-//	    dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-//	    dataSource.setUrl("jdbc:mysql://localhost/projeto_jpa");
-//	    dataSource.setUsername("root");
-//	    dataSource.setPassword("root");
 
 	    return dataSource;
 	}
